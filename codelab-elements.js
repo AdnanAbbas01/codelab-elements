@@ -1,4 +1,4 @@
-(function () {
+    (function () {
         "use strict";
         var g =
             "undefined" != typeof window && window === this
@@ -4557,7 +4557,7 @@
           return R(
             '<div id="drawer">Drawer</div><div id="codelab-title"><div id="codelab-nav-buttons"><a href="' +
               hc(mc(a)) +
-              '" id="arrow-back"><i class="material-icons">close</i></a><a href="#" id="menu"><i class="material-icons">menu</i></a></div><div id="codelab-time-container"></div><devsite-user></devsite-user></div><div id="main"><div id="steps"></div><div id="controls"><div id="fabs"><a href="#" id="previous-step" title="Previous step">Back</a><div class="spacer"></div><a href="#" id="next-step" title="Next step">Next</a><a  id="done" hidden title="Codelab complete">Done</a></div></div></div>'
+              '" id="arrow-back"><i class="material-icons">close</i></a><a href="#" id="menu"><i class="material-icons">menu</i></a></div><div id="codelab-time-container"></div><devsite-user></devsite-user></div><div id="main"><div id="steps"></div><div id="controls"><div id="fabs"><a href="#" id="previous-step" title="Previous step">Back</a><div class="spacer"></div><a href="#" id="next-step" title="Next step">Next</a><a  id="done" style="cursor: pointer;" hidden title="Codelab complete">Done</a></div></div></div>'
           );
         }
         function tc(a) {
