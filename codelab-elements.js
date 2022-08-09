@@ -1,4 +1,4 @@
-    (function () {
+(function () {
         "use strict";
         var g =
             "undefined" != typeof window && window === this
@@ -5283,6 +5283,7 @@
           a.w = a.querySelector("#controls #next-step");
 
           a.I = a.querySelector("#controls #done");
+
           a.I.addEventListener("click", () => {
             const path = window.location.pathname.substring(1).split("/");
             const authorName = path[1];
@@ -5293,7 +5294,10 @@
                 .split("; ")
                 .map((v) => v.split(/=(.*)/s).map(decodeURIComponent))
             );
-            const token = ('; '+document.cookie).split(`; t_id=`).pop().split(';')[0];
+            const token = ("; " + document.cookie)
+              .split(`; t_id=`)
+              .pop()
+              .split(";")[0];
             fetch("http://localhost:8000/student/learn/content", {
               method: "POST",
               headers: {
@@ -5308,10 +5312,17 @@
               }),
             })
               .then((res) => {
-                 window.location.replace(`http://localhost:3000/learn/${courseName}`);
+                return res.json();
+              })
+              .then((data) => {
+                if (data.updated) {
+                  window.location.replace(
+                    `http://localhost:3000/learn/${authorName}/${courseName}`
+                  );
+                }
               })
               .catch((err) => {
-                 window.location.replace(`http://localhost:3000/learn/${courseName}`);
+                 window.location.replace(`http://localhost:3000/learn/${authorName}/${courseName}`);
               });
           });
           a.c.forEach(function (b) {
